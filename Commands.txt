@@ -1,0 +1,22 @@
+Criar e rodar Container
+docker container run -p 8080:80 -d -n webserver nginx
+-p = --publish
+-d = --detach
+
+Parar Container
+docker container stop <CONTAINER ID / NAME>
+
+Remover Container
+docker container rm 80e97afdaf17  (any IDS)
+
+Iniciar Container já criado
+docker container start webserver
+
+Lista processos roando no Container 
+docker container top webserver   (nome/Id do Container)
+
+Mostar parâmetros e configurações do Container)
+docker container inspect webserver   (nome/Id do Container)
+
+Mostra estatisticas e processamento dos Container
+docker container stats
