@@ -20,3 +20,70 @@ docker container inspect webserver   (nome/Id do Container)
 
 Mostra estatisticas e processamento dos Container
 docker container stats
+
+Roda o  container do ubuntu, it = iretativo, abrindo o bash
+docker container run -it ubuntu /bin/bash
+
+Attach novamente um container que está rodando
+docker container attach 3939361ef787
+
+Roda um comando no container sem entrar nele
+docker container exec 3939361ef787 git --version
+
+Renomeia um container (Id e depois novo nome)
+docker container rename 3939361ef787 ubuntu
+
+Remove todos os containers parados
+docker container prune
+
+Remove uma imagem
+docker rmi <nome>
+
+Listar os volumes onde estão armazenads os dados
+docker volume ls
+docker container inspect 630bedfc0ae5 - inspecionar o container no mounts para saber o volume
+
+v c:\cloud9:/workspace - Cria o volume na pasta c:\cloud9
+docker run -d -v c:\cloud9:/workspace -p 8181:8181 sapk/cloud9 --auth username:password
+
+Commita as alterações do container em uma imagem nova
+docker container commit -m "Adiciondo nvm e curl" 2fbf2ef543a2
+
+Mostra as etapas de commites da imagem
+docker image history 334d310d96a7
+
+O parametro -P (maiusculo) mapeia a porta exposta para qualquer porta disponivel
+docker container run -d -P 49533628fb37
+
+Mostra a porta mapeada para o container
+docker port d64a86281661
+
+Filtra as informções do inspect
+docker container inspect --format '{{.Config.ExposedPorts}}' d64a86281661
+
+Mapeia uma pasta como volume de uma imagem linux (precisa do :/root)
+docker container run -d -v C:\cloud9:/root -P -p 3000:3000 49533628fb37
+
+Mostra as redes do docker - o default de um container é usar a bridge
+docker network ls
+
+Inspeciona a rede
+docker network inspect bridge
+
+Conecta um container de uma rede 
+docker network connect bridge cloud81
+
+Desconecta um container de uma rede 
+docker network disconnect bridge cloud81
+
+Cria uma rede
+docker network create my_net
+
+Remove uma rede
+docker network rm my_net
+
+Roda um container informando a rede
+docker container run <Image> --network <NETWORK>
+
+Nomear e criar tag de imagem criada apartir de outra com commit
+docker image tag a83e88f33e33 allanweber/ubuntu_sshd_nvm:latest
