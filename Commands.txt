@@ -1,6 +1,8 @@
 Acessa o shell do container, pode rodar qualquer comando como se estivesse na maquina
 (pode ser sh ou powershell ou zsh ou bash)
 docker exec -it <Container_Id> sh
+ou
+docker run -it <Image>
 
 Criar e rodar Container
 docker container run -p 8080:80 -d -n webserver nginx
