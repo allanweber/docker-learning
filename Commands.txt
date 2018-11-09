@@ -1,4 +1,5 @@
-Acessa o shell do container, pode rodar qualquer comando como se estivesse na maquinia
+Acessa o shell do container, pode rodar qualquer comando como se estivesse na maquina
+(pode ser sh ou powershell ou zsh ou bash)
 docker exec -it <Container_Id> sh
 
 Criar e rodar Container
