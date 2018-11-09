@@ -1,3 +1,6 @@
+Acessa o shell do container, pode rodar qualquer comando como se estivesse na maquinia
+docker exec -it <Container_Id> sh
+
 Criar e rodar Container
 docker container run -p 8080:80 -d -n webserver nginx
 -p = --publish
@@ -9,13 +12,13 @@ docker container stop <CONTAINER ID / NAME>
 Remover Container
 docker container rm 80e97afdaf17  (any IDS)
 
-Iniciar Container j· criado
+Iniciar Container j√° criado
 docker container start webserver
 
 Lista processos roando no Container 
 docker container top webserver   (nome/Id do Container)
 
-Mostar par‚metros e configuraÁıes do Container)
+Mostar par√¢metros e configura√ß√µes do Container)
 docker container inspect webserver   (nome/Id do Container)
 
 Mostra estatisticas e processamento dos Container
@@ -24,7 +27,7 @@ docker container stats
 Roda o  container do ubuntu, it = iretativo, abrindo o bash
 docker container run -it ubuntu /bin/bash
 
-Attach novamente um container que est· rodando
+Attach novamente um container que est√° rodando
 docker container attach 3939361ef787
 
 Roda um comando no container sem entrar nele
@@ -39,14 +42,14 @@ docker container prune
 Remove uma imagem
 docker rmi <nome>
 
-Listar os volumes onde est„o armazenads os dados
+Listar os volumes onde est√£o armazenads os dados
 docker volume ls
 docker container inspect 630bedfc0ae5 - inspecionar o container no mounts para saber o volume
 
 v c:\cloud9:/workspace - Cria o volume na pasta c:\cloud9
 docker run -d -v c:\cloud9:/workspace -p 8181:8181 sapk/cloud9 --auth username:password
 
-Commita as alteraÁıes do container em uma imagem nova
+Commita as altera√ß√µes do container em uma imagem nova
 docker container commit -m "Adiciondo nvm e curl" 2fbf2ef543a2
 
 Mostra as etapas de commites da imagem
@@ -58,13 +61,13 @@ docker container run -d -P 49533628fb37
 Mostra a porta mapeada para o container
 docker port d64a86281661
 
-Filtra as informÁıes do inspect
+Filtra as inform√ß√µes do inspect
 docker container inspect --format '{{.Config.ExposedPorts}}' d64a86281661
 
 Mapeia uma pasta como volume de uma imagem linux (precisa do :/root)
 docker container run -d -v C:\cloud9:/root -P -p 3000:3000 49533628fb37
 
-Mostra as redes do docker - o default de um container È usar a bridge
+Mostra as redes do docker - o default de um container √© usar a bridge
 docker network ls
 
 Inspeciona a rede
